@@ -1,3 +1,4 @@
+
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -9,14 +10,15 @@ const noteRoutes = require('./routes/noteRoutes');
 const whiteboardRoutes = require('./routes/whiteboardRoutes');
 const chatRoutes = require('./routes/chatRoutes');
 const reminderRoutes = require('./routes/reminderRoutes');
-
 const uploadRoutes = require('./routes/uploadRoutes');
 const userRoutes = require('./routes/userRoutes');
 const errorHandler = require('./middleware/errorHandler');
 
-
 // Load environment variables
 dotenv.config();
+
+// Define PORT - ADD THIS LINE
+const PORT = process.env.PORT || 5000;
 
 // Connect to database
 connectDB();
@@ -49,8 +51,11 @@ app.get('/api/health', (req, res) => {
   res.json({ message: 'StudyRoom API is running!' });
 });
 
+// Error handling middleware
 app.use(errorHandler);
+
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
-

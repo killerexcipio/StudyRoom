@@ -11,7 +11,7 @@ import { SidebarProvider } from "@/hooks/use-sidebar.tsx";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CollabNote - Your Digital Workspace",
+  title: "Study Room - Your Digital Workspace",
   description: "Collaborate on notes in real-time.",
 };
 
